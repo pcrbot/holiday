@@ -13,7 +13,7 @@ sv = Service('假期')
 today = time.time()
 
 curpath = dirname(__file__)
-config = join(curpath, 'holiday.json')
+config = join(curpath, 'data.json')
 if exists(config):
     with open(config) as fp:
         root = json.load(fp)
@@ -96,5 +96,5 @@ async def today_holiday():
     r = requests.get(url)
     holiday = r.json()
 
-    with open('holiday.json', 'w') as f:
+    with open('data.json', 'w') as f:
         json.dump(holiday, f)
